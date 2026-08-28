@@ -1,0 +1,24 @@
+{
+    "usuario": {
+        "nombre": "Kevin Pomatoca",
+        "telefono": "+52 55 1234 5678",
+        "rol": "Desarrollador Frontend"
+    },
+    "flipbook": [
+        {"numero": "01", "kicker": "El comienzo", "titulo": "La curiosidad como brújula", "texto": "Cada proyecto nace de una pregunta. Investigar, probar y observar son parte esencial de mi proceso creativo."},
+        {"numero": "02", "kicker": "La mirada", "titulo": "Diseñar para las personas", "texto": "Busco interfaces claras, accesibles y honestas, donde cada detalle tenga un propósito y cada interacción se sienta natural."},
+        {"numero": "03", "kicker": "La herramienta", "titulo": "Código con intención", "texto": "HTML, CSS y JavaScript son mis materiales para convertir ideas en experiencias funcionales y memorables."},
+        {"numero": "04", "kicker": "El proceso", "titulo": "Aprender haciendo", "texto": "Los errores también forman parte del resultado. Iterar rápido me permite encontrar soluciones más simples y fuertes."},
+        {"numero": "05", "kicker": "La práctica", "titulo": "Sistemas que respiran", "texto": "Organizar componentes, datos y estados convierte una interfaz bonita en una herramienta útil y confiable."},
+        {"numero": "06", "kicker": "El siguiente paso", "titulo": "Seguir construyendo", "texto": "Este portafolio es una muestra del camino actual, y cada avance me impulsa a seguir creando nuevas ideas."}
+    ],
+    "certificados": [
+        {"nombre": "Desarrollo web", "institucion": "Formación en tecnologías frontend", "anio": "2026"},
+        {"nombre": "Diseño de interfaces", "institucion": "Práctica y aprendizaje continuo", "anio": "2026"}
+    ],
+    "redes": [
+        {"nombre": "GitHub", "url": "https://github.com/", "icono": "github"},
+        {"nombre": "LinkedIn", "url": "https://www.linkedin.com/", "icono": "linkedin"},
+        {"nombre": "Instagram", "url": "https://www.instagram.com/", "icono": "instagram"}
+    ]
+}
