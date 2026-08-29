@@ -1,0 +1,656 @@
+/* ==========================================================================
+   RESET & VARIABLES
+   ========================================================================== */
+:root {
+  --bg-app: #f4f6fb;
+  --bg-card: #ffffff;
+  --primary: #582be8;
+  --primary-gradient: linear-gradient(135deg, #6c38ff 0%, #4614d6 100%);
+  --accent-pink: #ff2a7a;
+  --accent-cyan: #00d2ff;
+  --accent-green: #10b981;
+  --text-dark: #1e2029;
+  --text-muted: #7c8093;
+  --text-light: #a0a5ba;
+  --border-light: #eceef5;
+  --shadow-sm: 0 4px 12px rgba(30, 32, 41, 0.05);
+  --shadow-md: 0 8px 24px rgba(88, 43, 232, 0.08);
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.06);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #0d1117; /* Fondo exterior para centrar el prototipo */
+  color: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   APP CONTAINER (MOBILE-ONLY SIMULATION & FIT)
+   ========================================================================== */
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+  padding: 16px 16px 32px 16px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.project-link span {
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   1. HEADER
+   ========================================================================== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px 16px 4px;
+}
+
+/* Contenedor Izquierdo (Nombre y Teléfono) */
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-name-container {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.user-greeting {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.user-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.user-phone-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-phone {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Contenedor Derecho (2 Íconos) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-btn-container {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.icon-btn-container:hover,
+.icon-btn-container:active {
+  transform: scale(0.96);
+  background-color: #f8f9fc;
+}
+
+.header-icon {
+  width: 19px;
+  height: 19px;
+  stroke: var(--text-dark);
+}
+
+.badge-dot {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-pink);
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-card);
+}
+
+/* ==========================================================================
+   2. BANNERS PUBLICITARIOS (SLIDER EN FILA & AUTO-DESLIZABLE)
+   ========================================================================== */
+.banners-section {
+  margin: 8px 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.banners-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  touch-action: pan-y;
+  position: relative;
+}
+
+.banners-slider {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.banner-card {
+  min-width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 98px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.banner-card:active {
+  filter: brightness(0.96);
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+  max-width: 75%;
+}
+
+.banner-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  padding: 2px 7px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.banner-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.banner-subtitle {
+  font-size: 0.72rem;
+  opacity: 0.92;
+  line-height: 1.2;
+}
+
+.banner-icon-side {
+  font-size: 2.2rem;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+  flex-shrink: 0;
+}
+
+.banners-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.banners-pagination .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background-color: #d1d5db;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.banners-pagination .dot.active {
+  width: 22px;
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   3. CARTA PRINCIPAL (SALDO & CONSUMOS)
+   ========================================================================== */
+.main-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 18px 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--border-light);
+}
+
+/* 3.1 Header de la carta */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-balance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.card-balance-amount {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.card-action-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn-buy {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(88, 43, 232, 0.28);
+  transition: all 0.2s ease;
+}
+
+.btn-buy:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(88, 43, 232, 0.2);
+}
+
+/* 3.2 Contenedor de fila: Vencimiento y Combo */
+.card-expiry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: #f8f9fd;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+}
+
+.expiry-date-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dark);
+}
+
+.expiry-date-container svg {
+  stroke: var(--primary);
+  flex-shrink: 0;
+}
+
+.expiry-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.combo-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.combo-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: rgba(88, 43, 232, 0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* 3.3 Contenedor de Donas Dinámicas */
+.card-meters-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.meter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #fafbfe;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 6px 10px 6px;
+  transition: transform 0.2s ease;
+}
+
+.meter-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* Donut Chart SVG Wrapper */
+.donut-wrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-bg-circle {
+  fill: none;
+  stroke: #e7eaf3;
+  stroke-width: 6;
+}
+
+.donut-progress-circle {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 188.4; /* 2 * PI * 30 */
+  stroke-dashoffset: 188.4;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.donut-center-text {
+  position: absolute;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.meter-disponible {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.1;
+}
+
+.meter-total {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (375px & 320px)
+   ========================================================================== */
+
+/* Dispositivos estándar ~375px (iPhone X/11/12/13 Mini, SE nuevo) */
+@media (max-width: 375px) {
+  .app-container {
+    padding: 14px 12px 28px 12px;
+  }
+
+  .user-name {
+    font-size: 1.05rem;
+  }
+
+  .user-phone {
+    font-size: 0.78rem;
+  }
+
+  .icon-btn-container {
+    width: 36px;
+    height: 36px;
+  }
+
+  .card-balance-amount {
+    font-size: 1.35rem;
+  }
+
+  .btn-buy {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+  }
+
+  .card-expiry-row {
+    padding: 8px 10px;
+  }
+
+  .expiry-date {
+    font-size: 0.72rem;
+  }
+
+  .combo-badge {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+
+  .donut-wrapper {
+    width: 58px;
+    height: 58px;
+  }
+
+  .donut-center-text {
+    font-size: 0.68rem;
+  }
+
+  .meter-disponible {
+    font-size: 0.75rem;
+  }
+
+  .card-meters-row {
+    gap: 8px;
+  }
+}
+
+/* Dispositivos ultra-compactos ~320px (iPhone 5/SE gen 1, Galaxy Fold cover) */
+@media (max-width: 320px) {
+  .app-container {
+    padding: 10px 8px 24px 8px;
+  }
+
+  .app-header {
+    padding: 4px 2px 12px 2px;
+  }
+
+  .user-greeting {
+    font-size: 0.75rem;
+  }
+
+  .user-name {
+    font-size: 0.95rem;
+  }
+
+  .user-phone {
+    font-size: 0.72rem;
+  }
+
+  .icon-btn-container {
+    width: 32px;
+    height: 32px;
+    gap: 6px;
+  }
+
+  .header-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .banner-card {
+    padding: 12px 14px;
+    min-height: 86px;
+  }
+
+  .banner-title {
+    font-size: 0.85rem;
+  }
+
+  .banner-subtitle {
+    font-size: 0.66rem;
+  }
+
+  .banner-icon-side {
+    font-size: 1.8rem;
+  }
+
+  .main-card {
+    padding: 14px 10px 16px 10px;
+    gap: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .card-balance-amount {
+    font-size: 1.2rem;
+  }
+
+  .btn-buy {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .btn-buy svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .card-expiry-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .combo-badge {
+    align-self: flex-start;
+  }
+
+  .card-meters-row {
+    gap: 6px;
+  }
+
+  .meter-card {
+    padding: 8px 4px 8px 4px;
+  }
+
+  .meter-title {
+    font-size: 0.65rem;
+    margin-bottom: 4px;
+  }
+
+  .donut-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 4px;
+  }
+
+  .donut-center-text {
+    font-size: 0.62rem;
+  }
+
+  .meter-disponible {
+    font-size: 0.7rem;
+  }
+
+  .meter-total {
+    font-size: 0.6rem;
+  }
+}

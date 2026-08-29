@@ -1,0 +1,116 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "La crisis geopolítica que nadie vio venir en Europa y el mundo",
+      "channel": "DW Español",
+      "channelLogo": "canal/dw/logo.png",
+      "cover": "canal/dw/portada-2.png",
+      "video": "canal/dw/portada-2-video.mp4",
+      "views": "1.4 M de vistas",
+      "uploaded": "hace 3 semanas",
+      "duration": "14:28",
+      "category": "noticias",
+      "isShort": false
+    },
+    {
+      "id": 2,
+      "title": "Explicación detallada del final más impactante del cine de ciencia ficción",
+      "channel": "MovieGasm",
+      "channelLogo": "canal/moviegasm/logo.png",
+      "cover": "canal/moviegasm/portada-1.png",
+      "video": "canal/moviegasm/portada-1-video.mp4",
+      "views": "620 K de vistas",
+      "uploaded": "hace 1 mes",
+      "duration": "10:15",
+      "category": "peliculas",
+      "isShort": false
+    },
+    {
+      "id": 3,
+      "title": "El experimento científico que desafía las leyes de la física clásica",
+      "channel": "Veritasium en Español",
+      "channelLogo": "canal/veritasium/logo.png",
+      "cover": "canal/veritasium/portada-1.png",
+      "views": "450 K de vistas",
+      "uploaded": "hace 5 días",
+      "duration": "18:40",
+      "category": "ciencia",
+      "isShort": false
+    },
+    {
+      "id": 4,
+      "title": "¿Cómo reacciona la gente al ver esto en vivo? 😂",
+      "channel": "Charles",
+      "channelLogo": "canal/charles/logo.png",
+      "cover": "canal/charles/portada-1.png",
+      "video": "canal/charles/short-1.mp4",
+      "views": "1.8 M de vistas",
+      "uploaded": "hace 2 días",
+      "duration": "0:45",
+      "category": "entretenimiento",
+      "isShort": true
+    },
+    {
+      "id": 5,
+      "title": "Reportaje especial: Investigación exclusiva sobre las nuevas tecnologías",
+      "channel": "BN Periodismo",
+      "channelLogo": "canal/bn periodismo/logo.png",
+      "cover": "canal/bn periodismo/portada-1.png",
+      "views": "98 K de vistas",
+      "uploaded": "hace 12 horas",
+      "duration": "22:10",
+      "category": "noticias",
+      "isShort": false
+    },
+    {
+      "id": 6,
+      "title": "Cuando tu mejor amigo intenta darte consejos de pareja",
+      "channel": "Enchufe TV",
+      "channelLogo": "canal/enchufe tv/logo.png",
+      "cover": "canal/enchufe tv/portada-1.png",
+      "views": "3.1 M de vistas",
+      "uploaded": "hace 4 días",
+      "duration": "07:35",
+      "category": "comedia",
+      "isShort": false
+    },
+    {
+      "id": 7,
+      "title": "Las fronteras invisibles que definieron el mapa moderno",
+      "channel": "Historia Geopolítica",
+      "channelLogo": "canal/historia geopolitica/logo.png",
+      "cover": "canal/historia geopolitica/portada-1.png",
+      "views": "380 K de vistas",
+      "uploaded": "hace 1 semana",
+      "duration": "16:50",
+      "category": "historia",
+      "isShort": false
+    },
+    {
+      "id": 8,
+      "title": "Curiosidades impactantes en 30 segundos #Shorts",
+      "channel": "DW Español",
+      "channelLogo": "canal/dw/logo.png",
+      "cover": "canal/dw/portada-1.png",
+      "video": "canal/dw/short-1.mp4",
+      "views": "890 K de vistas",
+      "uploaded": "hace 6 días",
+      "duration": "0:30",
+      "category": "noticias",
+      "isShort": true
+    },
+    {
+      "id": 9,
+      "title": "Los mejores easter eggs y detalles ocultos que te perdiste",
+      "channel": "Comentando Películas",
+      "channelLogo": "canal/comentando peliculas/logo.png",
+      "cover": "canal/comentando peliculas/portada-1.png",
+      "views": "175 K de vistas",
+      "uploaded": "hace 2 semanas",
+      "duration": "11:48",
+      "category": "peliculas",
+      "isShort": false
+    }
+  ]
+}

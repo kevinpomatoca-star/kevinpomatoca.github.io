@@ -1,0 +1,335 @@
+/* ==========================================================================
+   YouTube Clone - Responsive Styles (media.css)
+   Media queries strictly for responsive adaptation
+   Breakpoints: 1024px, 768px, 425px, 375px, 320px
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Breakpoint: 1024px (Laptops / Small Desktops / Tablets Landscape)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 200px;
+  }
+
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .topbar-center {
+    max-width: 520px;
+    margin: 0 12px;
+  }
+
+  .main-content {
+    padding: 10px 18px 40px;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 14px;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* ==========================================================================
+   2. Breakpoint: 768px (Tablets Portrait / Large Phones)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .sidebar-overlay {
+    display: block;
+    pointer-events: none;
+  }
+
+  .sidebar-overlay.active {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: var(--topbar-height);
+    left: -260px;
+    bottom: 0;
+    width: 240px;
+    height: calc(100vh - var(--topbar-height));
+    z-index: 95;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.6);
+    transition: left var(--transition-normal);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .topbar-center {
+    margin: 0 8px;
+    max-width: 420px;
+  }
+
+  .shorts-btn-text {
+    display: none;
+  }
+
+  .shorts-top-btn {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .main-content {
+    padding: 8px 16px 36px;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .video-modal-container {
+    width: 95%;
+  }
+}
+
+/* ==========================================================================
+   3. Breakpoint: 425px (Mobile Large)
+   ========================================================================== */
+@media (max-width: 425px) {
+  :root {
+    --topbar-height: 50px;
+  }
+
+  .topbar {
+    padding: 0 8px;
+  }
+
+  .topbar-left {
+    gap: 8px;
+  }
+
+  .brand-text {
+    font-size: 1.15rem;
+  }
+
+  .brand-country {
+    display: none;
+  }
+
+  .topbar-center {
+    margin: 0 4px;
+    max-width: none;
+  }
+
+  .search-form {
+    height: 36px;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding: 0 12px;
+  }
+
+  .search-btn {
+    width: 46px;
+  }
+
+  .search-btn .svg-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .voice-btn {
+    display: none;
+  }
+
+  .topbar-right {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .user-avatar-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 6px 10px 30px;
+  }
+
+  .chips-container {
+    gap: 8px;
+    padding: 2px 0 12px;
+  }
+
+  .chip {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .video-thumbnail-wrapper {
+    border-radius: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+  }
+
+  .video-title {
+    font-size: 0.95rem;
+  }
+
+  .channel-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .video-modal-container {
+    width: 98%;
+  }
+
+  .modal-video-meta {
+    padding: 12px 14px;
+  }
+
+  .modal-channel-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .subscribe-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   4. Breakpoint: 375px (Mobile Medium)
+   ========================================================================== */
+@media (max-width: 375px) {
+  .brand-text {
+    display: none;
+  }
+
+  .topbar-left {
+    gap: 4px;
+  }
+
+  .menu-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .search-form {
+    height: 34px;
+  }
+
+  .search-box input {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  .search-btn {
+    width: 40px;
+  }
+
+  .chip {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .video-title {
+    font-size: 0.9rem;
+  }
+
+  .channel-name, .video-meta {
+    font-size: 0.76rem;
+  }
+
+  .short-title {
+    font-size: 0.85rem;
+  }
+
+  .short-views {
+    font-size: 0.75rem;
+  }
+
+  .video-modal-header {
+    padding: 10px 14px;
+  }
+
+  .video-modal-header h3 {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   5. Breakpoint: 320px (Mobile Small)
+   ========================================================================== */
+@media (max-width: 320px) {
+  .topbar {
+    padding: 0 4px;
+  }
+
+  .topbar-right .icon-btn:not(.shorts-top-btn):not(#topShortsBtn) {
+    display: none;
+  }
+
+  .search-box input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .main-content {
+    padding: 4px 6px 24px;
+  }
+
+  .video-thumbnail-wrapper {
+    margin-left: -6px;
+    margin-right: -6px;
+    width: calc(100% + 12px);
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .modal-video-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

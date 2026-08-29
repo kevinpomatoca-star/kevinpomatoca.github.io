@@ -1,0 +1,64 @@
+{
+  "usuario": {
+    "nombre": "Carlos Mendoza",
+    "telefono": "+57 312 456 7890"
+  },
+  "saldo": {
+    "monto": "$ 25.500",
+    "moneda": "COP",
+    "fechaVence": "Vence 30/08/2026",
+    "detalleCombo": "Incluye un combo"
+  },
+  "paquetes": [
+    {
+      "id": "datos",
+      "tipo": "DATOS",
+      "disponible": "8.5 GB",
+      "total": "12 GB",
+      "porcentaje": 70,
+      "color": "#ff007f"
+    },
+    {
+      "id": "voz",
+      "tipo": "VOZ",
+      "disponible": "350 Min",
+      "total": "500 Min",
+      "porcentaje": 70,
+      "color": "#00d2ff"
+    },
+    {
+      "id": "sms",
+      "tipo": "SMS",
+      "disponible": "180 SMS",
+      "total": "200 SMS",
+      "porcentaje": 90,
+      "color": "#10b981"
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "titulo": "¡Duplica tus Gigas hoy!",
+      "subtitulo": "Recarga desde $10.000 y recibe el doble",
+      "badge": "PROMO TOP",
+      "fondo": "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
+      "icono": "⚡"
+    },
+    {
+      "id": 2,
+      "titulo": "Pasa Gigas a tus amigos",
+      "subtitulo": "Sin costo adicional en tu plan",
+      "badge": "NUEVO",
+      "fondo": "linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)",
+      "icono": "🎁"
+    },
+    {
+      "id": 3,
+      "titulo": "Música Ilimitada Gratis",
+      "subtitulo": "3 meses incluidos en tu paquete",
+      "badge": "BENEFICIO",
+      "fondo": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+      "icono": "🎵"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Clon T - Prototipo Móvil</title>
+  <!-- Google Fonts: Inter / Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Contenedor Principal (Mobile Viewport) -->
+  <main class="app-container">
+    
+    <!-- 1. HEADER -->
+    <header class="app-header">
+      <!-- Contenedor izquierdo: Nombre y Teléfono -->
+      <div class="header-left">
+        <div class="user-name-container">
+          <span class="user-greeting">Hola,</span>
+          <h1 class="user-name" id="user-name">Cargando...</h1>
+        </div>
+        <div class="user-phone-container">
+          <span class="user-phone" id="user-phone">---</span>
+        </div>
+      </div>
+
+      <!-- Contenedor derecho: Dos contenedores de íconos -->
+      <div class="header-right">
+        <div class="icon-btn-container" title="Notificaciones" role="button" tabindex="0">
+          <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="badge-dot"></span>
+        </div>
+        <div class="icon-btn-container" title="Ayuda / Soporte" role="button" tabindex="0">
+          <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. SECCIÓN BANNERS PUBLICITARIOS (Slider en bucle cada 4s) -->
+    <section class="banners-section" aria-label="Banners Promocionales">
+      <div class="banners-slider-wrapper">
+        <div class="banners-slider" id="banners-container">
+          <!-- Renderizado dinámico desde data.json -->
+        </div>
+      </div>
+      <!-- Indicadores de paginación -->
+      <div class="banners-pagination" id="banners-dots">
+        <button class="dot active" data-index="0" aria-label="Banner 1"></button>
+        <button class="dot" data-index="1" aria-label="Banner 2"></button>
+        <button class="dot" data-index="2" aria-label="Banner 3"></button>
+      </div>
+    </section>
+
+    <!-- 3. CARTA DE DATOS / SALDO (3 PARTES) -->
+    <section class="main-card">
+      
+      <!-- 3.1 Header de la carta -->
+      <div class="card-header">
+        <div class="card-balance-info">
+          <span class="card-label">SALDO</span>
+          <h2 class="card-balance-amount" id="balance-amount">$ 0</h2>
+        </div>
+        <div class="card-action-container">
+          <button class="btn-buy" id="btn-buy" type="button">
+              <span>abrir tablero</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <a class="project-link" href="../Tablero de Proyectos/index.html">Organizar mis proyectos <span>↗</span></a>
+
+      <!-- 3.2 Contenedor de fila: Vencimiento y Combo -->
+      <div class="card-expiry-row">
+        <div class="expiry-date-container">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span class="expiry-date" id="expiry-date">Vence 30/08/2026</span>
+        </div>
+        <div class="combo-info-container">
+          <span class="combo-badge" id="combo-detail">Incluye un combo</span>
+        </div>
+      </div>
+
+      <!-- 3.3 Contenedores dinámicos: DATOS, VOZ, SMS con visualización de dona -->
+      <div class="card-meters-row" id="meters-container">
+        <!-- Renderizado dinámicamente con script.js -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
