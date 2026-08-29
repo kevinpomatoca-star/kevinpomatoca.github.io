@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Pomatoca | Portafolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        document.documentElement.dataset.theme = localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
+    </script>
+    <link rel="stylesheet" href="styles.css?v=10">
+</head>
+<body>
+
+<div class="theme-transition" id="themeTransition" aria-hidden="true"></div>
+
+<header>
+    <div class="nav-container">
+        <a href="#inicio" class="logo">
+            Kevin<span>.</span>
+        </a>
+
+        <button class="menu-button" id="menuButton" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="navMenu" aria-label="Navegación principal">
+            <a href="#inicio" class="nav-link active">INICIO</a>
+            <a href="#habilidades" class="nav-link">HABILIDADES</a>
+            <a href="#proyectos" class="nav-link">PROYECTOS</a>
+            <a href="#proyectos-web" class="nav-link">PROYECTOS WEB</a>
+
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+                <i class="fas fa-sun" aria-hidden="true"></i>
+                <span>Modo claro</span>
+            </button>
+            <div class="social-nav">
+                <a href="https://github.com" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section id="inicio">
+    <div class="profile-container">
+        <!-- La imagen de perfil tiene la animación de rotación en styles.css -->
+        <img src="perfil.png" alt="Fotografía de Kevin Pomatoca" class="profile-image" onerror="this.onerror=null; this.src='IMG/perfil.png';">
+
+        <h1>
+            Kevin <span>Pomatoca</span>
+        </h1>
+
+        <p class="career">Electrónica y Automatización</p>
+    </div>
+
+    <div class="about-content">
+        <h2>
+            Perfil <span>Profesional</span>
+        </h2>
+
+        <p>
+            Especialista en desarrollo de sistemas embebidos en tiempo real, diseño de convertidores de electrónica de potencia y algoritmos de control digital discreto.
+        </p>
+
+        <p>
+            Mi enfoque abarca desde el diseño esquemático de PCB y firmware en C/C++ hasta telemetría IoT, modelado dinámico y análisis de datos en Python y MATLAB.
+        </p>
+
+        <div class="about-info">
+            <div class="info-card">
+                <strong>Especialidad</strong>
+                <span>Sistemas Embebidos</span>
+            </div>
+
+            <div class="info-card">
+                <strong>Potencia</strong>
+                <span>Convertidores DC-DC, MPPT</span>
+            </div>
+
+            <div class="info-card">
+                <strong>Control Digital</strong>
+                <span>PID Discreto, Sensores</span>
+            </div>
+
+            <div class="info-card">
+                <strong>Software & RTOS</strong>
+                <span>C/C++, FreeRTOS, Python</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="habilidades">
+    <div class="section-title">
+        <h2>Pilares y Stack</h2>
+        <p>Mis áreas de especialización y herramientas tecnológicas</p>
+    </div>
+
+    <div class="certificates-grid">
+        <article class="certificate-card">
+            <i class="fas fa-microchip"></i>
+            <h3>Firmware & RTOS</h3>
+            <p>C/C++, FreeRTOS, Linux Embebido. Comunicación I2C, SPI, UART en PIC, ESP32 y RPi.</p>
+        </article>
+        
+        <article class="certificate-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Electrónica de Potencia</h3>
+            <p>Diseño de Buck, Boost, Flyback. Algoritmos MPPT y Drivers MOSFET.</p>
+        </article>
+        
+        <article class="certificate-card">
+            <i class="fas fa-cloud"></i>
+            <h3>IoT & Datos</h3>
+            <p>Firebase RTDB, APIs, EEPROM offline, Análisis en Python, Folium GIS.</p>
+        </article>
+    </div>
+
+    <div class="stack-tags" style="margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">C/C++</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">Python</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">MATLAB</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">FreeRTOS</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">MPLAB X</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">EasyEDA</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">Proteus</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">Firebase</span>
+        <span class="tag" style="font-size: 14px; padding: 8px 16px;">I2C / SPI / UART</span>
+    </div>
+</section>
+
+<section id="proyectos">
+    <div class="section-title">
+        <h2>Proyectos de Hardware e IoT</h2>
+        <p>Explora mi portafolio interactivo tipo libro</p>
+    </div>
+
+    <div class="flipbook-wrapper">
+        <button id="prevPage" class="flip-nav-btn" aria-label="Página anterior"><i class="fas fa-chevron-left"></i></button>
+        <div id="projectsFlipbook">
+            <!-- Páginas generadas dinámicamente -->
+        </div>
+        <button id="nextPage" class="flip-nav-btn" aria-label="Página siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+
+<section id="proyectos-web">
+    <div class="section-title">
+        <h2>Proyectos Web (HTML/CSS/JS)</h2>
+        <p>Desarrollos frontend de interfaces interactivas</p>
+    </div>
+
+    <div class="projects-grid" id="webProjectsContainer">
+        <!-- Generado dinámicamente -->
+    </div>
+</section>
+
+<section id="redes">
+    <div class="section-title">
+        <h2>Contacto</h2>
+        <p>¿Interesado en colaborar?</p>
+    </div>
+
+    <div class="contact-card-box">
+        <p class="contact-intro">
+            Abierto a proyectos de diseño de hardware, desarrollo de firmware en tiempo real y soluciones IoT.
+        </p>
+
+        <div class="social-container">
+            <a href="https://github.com" class="social-card" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" class="social-card" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:kevin@ejemplo.com" class="social-card" aria-label="Correo Electrónico">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2026 Kevin Pomatoca — Sistemas Embebidos & Frontend</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+<script src="script.js?v=10" defer></script>
+</body>
+</html>

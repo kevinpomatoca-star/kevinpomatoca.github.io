@@ -1,0 +1,100 @@
+{
+  "projects": [
+    {
+      "id": "buck-pid-freertos",
+      "title": "Controlador Digital PID para Convertidor Buck con FreeRTOS y ESP32-C3",
+      "description": "Implementación de un controlador digital de voltaje PID discreto multihilo sobre FreeRTOS, con telemetría en tiempo real mediante pantalla OLED y regulación dinámica de ciclo de trabajo PWM.",
+      "icon": "fa-solid fa-bolt",
+      "gradient": "linear-gradient(135deg, #0284c7, #38bdf8)",
+      "tags": [
+        "ESP32-C3",
+        "FreeRTOS",
+        "Electrónica de Potencia",
+        "Control Digital",
+        "C++"
+      ],
+      "url": "#"
+    },
+    {
+      "id": "incubacion-rpi",
+      "title": "Sistema Embebido de Incubación Automatizada Basado en Raspberry Pi",
+      "description": "Control multivariable de temperatura, humedad y concentración de CO2 utilizando una máquina de estados finitos (FSM) de 6 estados, sensores de alta precisión (SCD41, SHT31-D) y lazos de control PID.",
+      "icon": "fa-solid fa-microchip",
+      "gradient": "linear-gradient(135deg, #059669, #10b981)",
+      "tags": [
+        "Raspberry Pi 5",
+        "FSM",
+        "Sensores I2C",
+        "Automatización",
+        "Python"
+      ],
+      "url": "#"
+    },
+    {
+      "id": "control-motor-pic",
+      "title": "Control Digital de Velocidad para Motor DC con Arquitectura Distribuida PIC",
+      "description": "Sistema de lazo cerrado con encoder óptico utilizando un PIC16F877A maestro para el algoritmo PID y PICs esclavos para modulación de potencia/dimmer y multiplexación de displays de 7 segmentos. Documentado bajo formato IEEE.",
+      "icon": "fa-solid fa-gauge-high",
+      "gradient": "linear-gradient(135deg, #7c3aed, #a855f7)",
+      "tags": [
+        "PIC16F877A",
+        "MPLAB X / XC8",
+        "Control PID",
+        "IEEE"
+      ],
+      "url": "#"
+    },
+    {
+      "id": "datalogger-iot",
+      "title": "Datalogger IoT con Respaldo Offline y Sincronización en la Nube",
+      "description": "Nodo de monitoreo de variables ambientales con RTC de alta precisión, almacenamiento en memoria EEPROM externa para tolerancia a fallos de red, sincronización automática con Firebase RTDB y alertas por Telegram.",
+      "icon": "fa-solid fa-cloud-arrow-up",
+      "gradient": "linear-gradient(135deg, #ea580c, #f97316)",
+      "tags": [
+        "IoT",
+        "Firebase",
+        "ESP32",
+        "EEPROM",
+        "Telegram API"
+      ],
+      "url": "#"
+    },
+    {
+      "id": "cartografia-redes",
+      "title": "Extracción y Cartografía Geoespacial de Redes de Distribución Eléctrica",
+      "description": "Script automatizado en Python para web scraping, limpieza de datos geoespaciales y visualización interactiva de infraestructura de distribución eléctrica mediante Folium y Pandas.",
+      "icon": "fa-solid fa-map-location-dot",
+      "gradient": "linear-gradient(135deg, #0d9488, #14b8a6)",
+      "tags": [
+        "Python",
+        "Web Scraping",
+        "GIS / Folium",
+        "Pandas"
+      ],
+      "url": "#"
+    }
+  ],
+  "proyectos_web": [
+    {
+      "title": "Clon T",
+      "description": "Prototipo móvil para consultar saldo, paquetes y promociones de un servicio telefónico.",
+      "image": "IMG/clon-t.png",
+      "url": "proyectos/Clon T/index.html",
+      "tags": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "title": "Clon Youtube",
+      "description": "Interfaz de reproducción y exploración de videos con búsqueda, filtros, Shorts y modal.",
+      "image": "IMG/clon-youtube.png",
+      "url": "proyectos/Clon Youtube/index.html",
+      "tags": ["UI", "Filtros", "Responsive"]
+    },
+    {
+      "title": "Tablero de Proyectos",
+      "description": "Tablero Kanban para organizar tareas, prioridades, actividad y progreso de proyectos.",
+      "image": "IMG/tablero-proyectos.png",
+      "url": "proyectos/Tablero de Proyectos/index.html",
+      "tags": ["Kanban", "Drag & Drop", "LocalStorage"]
+    }
+  ]
+}
