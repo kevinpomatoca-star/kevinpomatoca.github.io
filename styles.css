@@ -22,11 +22,88 @@ html[data-theme="light"] {
     --border: rgba(15, 23, 42, 0.12);
     --header-bg: rgba(248, 250, 252, 0.88);
 }
-html, body { background: var(--bg); }
-html { scroll-behavior: smooth; }
+html { background: var(--bg); scroll-behavior: smooth; }
+body { background: var(--bg); }
+
+/* STAR BACKGROUND (Dark Mode only) */
+.star-background {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+    opacity: 1;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+html[data-theme="light"] .star-background { opacity: 0; }
+html[data-theme="dark"] { background: transparent; }
+html[data-theme="dark"] body { background: transparent; }
+
+.stars {
+    width: 1px; height: 1px; position: absolute; background: white;
+    box-shadow: 7vw 8vh 1px white, 14vw 22vh 2px white, 25vw 5vh 1px white, 38vw 19vh 2px white, 42vw 45vh 1px white, 55vw 12vh 2px white, 68vw 38vh 1px white, 75vw 15vh 2px white, 88vw 33vh 1px white, 92vw 8vh 2px white, 3vw 60vh 1px white, 18vw 85vh 2px white, 29vw 65vh 1px white, 41vw 90vh 2px white, 48vw 72vh 1px white, 59vw 95vh 2px white, 65vw 55vh 1px white, 77vw 82vh 2px white, 85vw 68vh 1px white, 95vw 92vh 2px white, 11vw 48vh 1px white, 33vw 58vh 2px white, 52vw 41vh 1px white, 71vw 52vh 2px white, 82vw 25vh 1px white, 97vw 55vh 2px white, 2vw 25vh 1px white, 15vw 12vh 2px white, 27vw 45vh 1px white, 39vw 30vh 2px white, 45vw 80vh 1px white, 57vw 22vh 2px white, 69vw 88vh 1px white, 73vw 10vh 2px white, 86vw 40vh 1px white, 94vw 75vh 2px white, 6vw 95vh 1px white;
+    animation: twinkle 10s infinite linear;
+}
+
+.shooting-star {
+    position: absolute; width: 100px; height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    animation: shoot 3.75s infinite ease-in;
+}
+
+.shooting-star:nth-child(2) { top: 20%; left: -100px; animation-delay: 0s; }
+.shooting-star:nth-child(3) { top: 35%; left: -100px; animation-delay: 1.25s; }
+.shooting-star:nth-child(4) { top: 50%; left: -100px; animation-delay: 2.5s; }
+.shooting-star:nth-child(5) { top: 15%; left: -100px; animation-delay: 3.75s; }
+.shooting-star:nth-child(6) { top: 40%; left: -100px; animation-delay: 5s; }
+.shooting-star:nth-child(7) { top: 60%; left: -100px; animation-delay: 6.25s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes shoot {
+    0% { transform: translateX(0) translateY(0) rotate(25deg); opacity: 1; }
+    100% { transform: translateX(120vw) translateY(50vh) rotate(25deg); opacity: 0; }
+}
+
+.stars::after {
+    content: ""; position: absolute; width: 1px; height: 1px; background: white;
+    box-shadow: 2vw 15vh 2px white, 19vw 9vh 1px white, 28vw 35vh 2px white, 35vw 8vh 1px white, 45vw 28vh 2px white, 51vw 18vh 1px white, 62vw 29vh 2px white, 79vw 12vh 1px white, 84vw 45vh 2px white, 98vw 19vh 1px white, 8vw 70vh 2px white, 15vw 95vh 1px white, 22vw 78vh 2px white, 39vw 88vh 1px white, 46vw 62vh 2px white, 56vw 85vh 1px white, 69vw 75vh 2px white, 73vw 98vh 1px white, 89vw 80vh 2px white, 93vw 60vh 1px white;
+    animation: twinkle 7.5s infinite linear reverse;
+}
+
+/* LIGHT BACKGROUND (Rainbow) */
+.light-background {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none; overflow: hidden;
+}
+html[data-theme="light"] .light-background { opacity: 1; }
+
+.rainbow {
+    height: 100vh; width: 0; top: 0; position: absolute;
+    transform: rotate(10deg); transform-origin: top right;
+}
+@keyframes slideRainbow {
+    from { right: -25vw; }
+    to { right: 125vw; }
+}
+.h-glow {
+    box-shadow: 0 0 50vh 40vh white;
+    width: 100vw; height: 0; bottom: 0; left: 0; position: absolute;
+}
+.v-glow {
+    box-shadow: 0 0 35vw 25vw white;
+    width: 0; height: 100vh; bottom: 0; left: 0; position: absolute;
+}
+
 body {
     font-family: "Inter", sans-serif;
-    background: var(--bg);
     color: var(--text);
     line-height: 1.6;
     transition: background-color 0.35s ease, color 0.35s ease;
@@ -101,6 +178,7 @@ nav a:hover, nav a.active { color: var(--primary); }
 }
 
 section {
+    position: relative; z-index: 1;
     min-height: 100vh; max-width: var(--max-width); margin: auto;
     padding: 120px 25px 80px; scroll-margin-top: 70px;
 }
@@ -120,19 +198,15 @@ section {
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary);
-    box-shadow: 0 0 40px var(--primary-glow);
+    box-shadow: 0 0 40px rgba(56,189,248,0.5);
     transition: transform 0.3s ease;
     animation: rotarFoto 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     transform-style: preserve-3d;
 }
 
 @keyframes rotarFoto {
-    from {
-        transform: perspective(1000px) rotateY(0deg);
-    }
-    to {
-        transform: perspective(1000px) rotateY(1080deg);
-    }
+    from { transform: perspective(1000px) rotateY(0deg); }
+    to { transform: perspective(1000px) rotateY(1080deg); }
 }
 
 .profile-container h1 { margin-top: 25px; font-size: 42px; font-weight: 800; }
@@ -153,7 +227,7 @@ section {
 .info-card span { color: var(--text-secondary); }
 
 /* PROYECTOS */
-#proyectos { background: var(--bg); }
+#proyectos { background: transparent; }
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
 .project-card {
@@ -199,6 +273,7 @@ section {
 .social-card:hover { background: var(--primary); color: #000; transform: translateY(-5px); }
 
 footer {
+    position: relative; z-index: 1;
     text-align: center; padding: 30px; border-top: 1px solid var(--border);
     color: var(--text-secondary); font-size: 14px;
 }
@@ -239,8 +314,7 @@ footer {
 }
 
 #projectsFlipbook {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    background-color: var(--card);
+    /* La librería page-flip maneja los fondos y sombras internamente en cada hoja */
 }
 
 .page {
@@ -329,13 +403,8 @@ footer {
     background: var(--primary-dark);
 }
 
-#prevPage {
-    left: -20px;
-}
-
-#nextPage {
-    right: -20px;
-}
+#prevPage { left: -20px; }
+#nextPage { right: -20px; }
 
 @media (max-width: 600px) {
     #prevPage { left: 0px; }

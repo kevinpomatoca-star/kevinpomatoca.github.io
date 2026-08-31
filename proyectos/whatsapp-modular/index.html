@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone - Vista Modular</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="phone-shell">
+        <main class="whatsapp-app" id="whatsappApp">
+            <!-- HEADER -->
+            <header class="app-header">
+                <div class="toolbar">
+                    <h2>WhatsApp</h2>
+                    <div class="toolbar-actions">
+                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-search"></i>
+                        <button class="module-toggle" id="moduleToggle" aria-label="Toggle Modular View">
+                            <i class="fas fa-grip"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- STATUS STRIP -->
+                <div class="status-strip" id="statusStrip">
+                    <!-- Statuses rendered via JS -->
+                </div>
+                <!-- SEARCH (Optional, visual only) -->
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar un chat o contacto">
+                    </div>
+                </div>
+                <!-- TABS -->
+                <div class="filter-tabs">
+                    <span class="tab active">Todos</span>
+                    <span class="tab">No leídos</span>
+                    <span class="tab">Favoritos</span>
+                    <span class="tab">Grupos</span>
+                </div>
+            </header>
+
+            <!-- CHAT LIST -->
+            <section class="chat-list" id="chatList">
+                <!-- Chats rendered via JS -->
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

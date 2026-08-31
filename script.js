@@ -68,6 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 image: 'IMG/tablero-proyectos.png',
                 url: 'proyectos/Tablero de Proyectos/index.html',
                 tags: ['Kanban', 'Drag & Drop', 'LocalStorage']
+            },
+            {
+                title: 'WhatsApp Modular',
+                description: 'Clon de WhatsApp con vista modular y modo listado dinámico, construido con HTML, CSS y JS puro.',
+                image: 'file:///C:/Users/USER/.gemini/antigravity/brain/15499d4c-4de2-428d-8ac8-79b20dbc9ff7/whatsapp_clone_mockup_1788143572813.jpg',
+                url: 'proyectos/whatsapp-modular/index.html',
+                tags: ['CSS Grid', 'Animaciones', 'UI Móvil']
             }
         ]
     };
@@ -117,28 +124,34 @@ document.addEventListener('DOMContentLoaded', () => {
         themeTransition.style.setProperty('--theme-y', `${transitionY}px`);
         themeTransition.style.setProperty('--transition-bg', getThemeColor(nextTheme));
         themeToggle.disabled = true;
-        document.body.classList.remove('theme-content-enter');
-        void document.body.offsetWidth;
-        document.body.classList.add('theme-content-enter');
 
-        if (themeTransition.classList.contains('is-covered')) {
+        // 1. Expandir la esfera para esconder el contenido
+        themeTransition.classList.add('is-expanding');
+
+        themeTransition.addEventListener('animationend', function expandHandler() {
+            themeTransition.removeEventListener('animationend', expandHandler);
+            
+            // 2. Cambiar el tema de fondo mientras está escondido
             root.dataset.theme = nextTheme;
             localStorage.setItem('portfolio-theme', nextTheme);
-            themeTransition.classList.add('is-contracting');
-        } else {
-            themeTransition.classList.add('is-expanding');
-            root.dataset.theme = nextTheme;
-            localStorage.setItem('portfolio-theme', nextTheme);
-        }
-
-        themeTransition.addEventListener('animationend', () => {
-            const wasContracting = themeTransition.classList.contains('is-contracting');
-            themeTransition.classList.remove('is-expanding', 'is-contracting');
-            themeTransition.classList.toggle('is-covered', !wasContracting);
-            document.body.classList.remove('theme-content-enter');
-            themeToggle.disabled = false;
             updateThemeToggle();
-        }, { once: true });
+
+            // Animación de aparición de contenido nuevo
+            document.body.classList.remove('theme-content-enter');
+            void document.body.offsetWidth;
+            document.body.classList.add('theme-content-enter');
+
+            // 3. Contraer la esfera para mostrar el contenido
+            themeTransition.classList.remove('is-expanding');
+            themeTransition.classList.add('is-contracting');
+
+            themeTransition.addEventListener('animationend', function contractHandler() {
+                themeTransition.removeEventListener('animationend', contractHandler);
+                themeTransition.classList.remove('is-contracting');
+                document.body.classList.remove('theme-content-enter');
+                themeToggle.disabled = false;
+            });
+        });
     }
 
     if (themeToggle && themeTransition) {
@@ -155,10 +168,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Portada
         const cover = document.createElement('div');
         cover.className = 'page page-cover';
+        cover.setAttribute('data-density', 'hard');
         cover.innerHTML = `<div class="page-wrapper" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
             <h2>Proyectos<br>Hardware e IoT</h2><p>Desliza para explorar</p>
         </div>`;
         flipbookElement.appendChild(cover);
+
+        // Reverso de la portada (hoja en blanco)
+        const insideCover = document.createElement('div');
+        insideCover.className = 'page';
+        insideCover.innerHTML = `<div class="page-wrapper" style="background-color: var(--card); height:100%;"></div>`;
+        flipbookElement.appendChild(insideCover);
 
         // Páginas de proyectos
         projects.forEach((project, index) => {
@@ -185,11 +205,30 @@ document.addEventListener('DOMContentLoaded', () => {
             flipbookElement.appendChild(page);
         });
 
-        // Contraportada
+        // Página de Fin
+        const finPage = document.createElement('div');
+        finPage.className = 'page';
+        finPage.innerHTML = `<div class="page-wrapper" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
+            <h2>Fin</h2><p>Gracias por explorar</p>
+        </div>`;
+        flipbookElement.appendChild(finPage);
+
+        // Balance de páginas: Asegurar que las páginas internas sean pares para que la contraportada caiga a la izquierda
+        // Páginas internas = Reverso (1) + Proyectos (N) + Fin (1) = N + 2
+        // Si N no es par, N+2 es impar, por lo que agregamos una hoja transparente
+        if (projects.length % 2 !== 0) {
+            const invisiblePage = document.createElement('div');
+            invisiblePage.className = 'page';
+            invisiblePage.innerHTML = `<div class="page-wrapper" style="background-color: var(--card); height:100%;"></div>`;
+            flipbookElement.appendChild(invisiblePage);
+        }
+
+        // Contraportada (Tapa dura final)
         const backCover = document.createElement('div');
         backCover.className = 'page page-cover';
+        backCover.setAttribute('data-density', 'hard');
         backCover.innerHTML = `<div class="page-wrapper" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
-            <h2>Fin</h2><p>Gracias por leer</p>
+            <i class="fas fa-microchip" style="font-size: 3rem; opacity: 0.5;"></i>
         </div>`;
         flipbookElement.appendChild(backCover);
 
@@ -298,5 +337,41 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveNavLink);
     updateActiveNavLink();
     loadPortfolioData();
-});
 
+    // Generar fondo de arcoíris para el Modo Claro (Light Mode)
+    const lightBg = document.getElementById('lightBackground');
+    if (lightBg) {
+        const purple = 'rgb(232, 121, 249)';
+        const blue = 'rgb(96, 165, 250)';
+        const green = 'rgb(94, 234, 212)';
+        const colorsets = [
+            [purple, blue, green],
+            [purple, green, blue],
+            [green, purple, blue],
+            [green, blue, purple],
+            [blue, green, purple],
+            [blue, purple, green]
+        ];
+        const length = 25;
+        const animTime = 56.25;
+
+        for (let i = 1; i <= length; i++) {
+            const rb = document.createElement('div');
+            rb.className = 'rainbow';
+
+            const r = Math.floor(Math.random() * 6);
+            const c = colorsets[r];
+
+            const shadow = `-130px 0 80px 40px white, -50px 0 50px 25px ${c[0]}, 0 0 50px 25px ${c[1]}, 50px 0 50px 25px ${c[2]}, 130px 0 80px 40px white`;
+            const duration = animTime - (animTime / length / 2 * i);
+            const delay = -(i / length * animTime);
+
+            rb.style.boxShadow = shadow;
+            rb.style.animation = `slideRainbow ${duration}s linear infinite`;
+            rb.style.animationDelay = `${delay}s`;
+
+            // Insertar antes del h-glow y v-glow
+            lightBg.insertBefore(rb, lightBg.firstChild);
+        }
+    }
+});
